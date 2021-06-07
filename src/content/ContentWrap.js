@@ -3,25 +3,26 @@ import React from "react";
 /** @jsx jsx */
 import { jsx, css } from "@emotion/react";
 import styled from "@emotion/styled";
-
 import { Tabs, Tab } from "react-bootstrap";
-import ContentPopular from "./ContentPopular";
-import ContentKnowhow from "./ContentKnowhow";
-import ContentQNA from "./ContentQNA";
-import ContentTip from "./ContentTip";
+import ContentPopular from "./popular/ContentPopular";
+import ContentKnowhow from "./knowhow/ContentKnowhow";
+import RightRoom from "./lightroom/LightRoom";
 
 function ContentWrap() {
   let JustyfyCenter = css`
     justify-content: center;
     margin-bottom: 30px;
     font-size: 12px;
+    .nav-item nav-link {
+      margin-bottom: 0px;
+    }
     @media (min-width: 420px) {
       font-size: 10px;
     }
   `;
 
   const ContentDiv = styled.div`
-    width: 80%;
+    width: 60%;
     margin: 0 auto;
   `;
 
@@ -45,15 +46,13 @@ function ContentWrap() {
           <ContentKnowhow />
         </ContentDiv>
       </Tab>
-      <Tab eventKey="qna" title="질문 및 답변">
+      <Tab eventKey="qna" title="라이트룸">
         <ContentDiv>
-          <ContentQNA />
+          <RightRoom />
         </ContentDiv>
       </Tab>
-      <Tab eventKey="tips" title="전문가 팁">
-        <ContentDiv>
-          <ContentTip />
-        </ContentDiv>
+      <Tab eventKey="tips" title="시공">
+        <ContentDiv></ContentDiv>
       </Tab>
     </Tabs>
   );

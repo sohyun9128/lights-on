@@ -1,0 +1,31 @@
+.customNav {
+  border: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 30px;
+}
+
+.customNav a {
+  color: black;
+  background-color: grey;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.customNav a:hover, .customNav a:foucs {
+  border: none;
+}
+
+.customNav .nav-link.active {
+  border: 0px black;
+  background-color: yellow;
+}
+
+.customNav .nav-link.active:hover, .customNav .nav-link.active:foucs {
+  border: none;
+}
+
+.customNav:hover, .customNav:foucs {
+  border: none;
+}

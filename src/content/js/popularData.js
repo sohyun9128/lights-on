@@ -1,43 +1,52 @@
-const popularDataSet1 = [
+const popularLeftDataSet = [
   {
-    title: "Card title 1",
-    text: "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+    title: "LED, QLED, OLED 뭐가 같고 다를까?",
+    name: "A",
     src: "/img/content/popular/1.png",
-    date: "Last updated 1 days ago",
   },
   {
-    title: "Card title 2",
-    text: "This card has supporting text below as a natural lead-in to additional content.",
+    title: "각 공간에 알맞는 조명 선택 Tip",
+    name: "B",
     src: "/img/content/popular/2.png",
-    date: "Last updated 2 days ago",
   },
   {
-    title: "Card title 3",
-    text: "This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.",
+    title: "스마트 조명으로 거실 분위기 바꿔보기",
+    name: "C",
     src: "/img/content/popular/3.png",
-    date: "Last updated 3 days ago",
   },
 ];
 
-const popularDataSet2 = [
+const popularRightDataSet = [
   {
-    title: "Card title 4",
-    text: "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+    sub: "조명이 처음이신가요?",
+    title: "가이드 북",
+  },
+  {
+    sub: "전문가들만의!",
+    title: "전문가 팁",
+  },
+  {
+    sub: "전문가 팁",
+    title: "노하우",
+  },
+];
+
+const popularReviewDataSet = [
+  {
+    name: "대방 인테리어",
+    text: "추천 받은 대방 인테리어에서 진행했습니다. 상담부터 신뢰가..",
     src: "/img/content/popular/4.png",
-    date: "Last updated 4 days ago",
   },
   {
-    title: "Card title 5",
-    text: "This card has supporting text below as a natural lead-in to additional content.",
+    name: "찾아가는 시공",
+    text: "카페가 오픈한지 오래되어 레일조명을 바꾸려고 업체를 찾..",
     src: "/img/content/popular/5.png",
-    date: "Last updated 5 days ago",
   },
   {
-    title: "Card title 6",
-    text: "This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.",
+    name: "Lights Design",
+    text: "상당히 전문적인 시공업체라 추천 받았고 위치도 가까워..",
     src: "/img/content/popular/6.png",
-    date: "Last updated 6 days ago",
   },
 ];
 
-export {popularDataSet1, popularDataSet2};
+export { popularLeftDataSet, popularRightDataSet, popularReviewDataSet };

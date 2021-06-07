@@ -1,0 +1,27 @@
+.customNav {
+     border: none;
+     justify-content: center;
+     margin-bottom: 30px;
+     a {
+         color: black;
+         background-color: grey;
+         margin-right: 10px;
+         font-weight: bold;
+          &:hover,
+          &:foucs {
+              border: none;
+          }
+     }
+     .nav-link.active {
+         border: 0px black;
+         background-color: yellow;
+         &:hover,
+         &:foucs {
+             border: none;
+         }
+     }
+     &:hover,
+     &:foucs {
+         border: none;
+     }
+}
