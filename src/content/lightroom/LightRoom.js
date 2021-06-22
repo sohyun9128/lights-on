@@ -46,10 +46,41 @@ function RightRoom() {
         />
 
         <Tabs
-          defaultActiveKey="VR"
+          defaultActiveKey="All"
           id="uncontrolled-tab-example"
           className="customNav"
         >
+          <Tab eventKey="All" title="All">
+            <FeedGridLayout>
+              {VR.map((feed, idx) => (
+                <LightRoomFeed
+                  key={idx}
+                  feed={feed}
+                  // state={LightRoomFeed}
+                  // setState={setLightRoomFeed}
+                  idx={idx}
+                />
+              ))}
+              {AR.map((feed, idx) => (
+                <LightRoomFeed
+                  key={idx}
+                  feed={feed}
+                  // state={LightRoomFeed}
+                  // setState={setLightRoomFeed}
+                  idx={idx}
+                />
+              ))}
+              {RV.map((feed, idx) => (
+                <LightRoomFeed
+                  key={idx}
+                  feed={feed}
+                  // state={LightRoomFeed}
+                  // setState={setLightRoomFeed}
+                  idx={idx}
+                />
+              ))}
+            </FeedGridLayout>
+          </Tab>
           <Tab eventKey="VR" title="VR">
             <FeedGridLayout>
               {VR.map((feed, idx) => (

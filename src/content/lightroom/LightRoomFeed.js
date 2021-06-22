@@ -6,6 +6,7 @@ import styled from "@emotion/styled";
 
 function LightRoomFeed(props) {
   let src = props.feed.src;
+  const [isShown, setisShown] = useState(false);
 
   const FeedDiv = styled.div`
     border-radius: 30px;
@@ -41,6 +42,25 @@ function LightRoomFeed(props) {
     width: 100%;
   `;
 
+  const HoverDiv = styled.div`
+    border: 1px solid black;
+    display: flex;
+    background-color: white;
+    margin-left: 15px;
+    min-width: 200px;
+    position: relative;
+    z-index: 99;
+    height: 100px;
+    max-height: 100px;
+    margin-top: -10px;
+    text-align: center;
+    div {
+      img {
+        height: 80px;
+      }
+    }
+  `;
+
   let [Like, setLike] = useState(false);
 
   return (
@@ -54,7 +74,12 @@ function LightRoomFeed(props) {
       </p>
       <FeedImg src={props.feed.src} alt={props.feed.name} />
       <FeedFooter>
-        <i className="bi bi-caret-down"></i>
+        <i
+          id="bottomArrow"
+          className="bi bi-caret-down"
+          onMouseEnter={() => setisShown(true)}
+          onMouseLeave={() => setisShown(false)}
+        ></i>
         <div>
           {Like ? (
             <i
@@ -75,6 +100,24 @@ function LightRoomFeed(props) {
           <i className="bi bi-chat pl-2"></i>
         </div>
       </FeedFooter>
+      {isShown && (
+        <HoverDiv id="hoverDiv" className="p-2">
+          <div className="col-6">
+            <img
+              src={process.env.PUBLIC_URL + "/img/content/mainImg1.jpg"}
+              alt=""
+              class="img-fluid"
+            />
+          </div>
+          <div className="col-6">
+            <img
+              src={process.env.PUBLIC_URL + "/img/content/mainImg2.jpg"}
+              alt=""
+              class="img-fluid"
+            />
+          </div>
+        </HoverDiv>
+      )}
     </FeedDiv>
   );
 }

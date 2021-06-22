@@ -2,6 +2,7 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/react";
 import styled from "@emotion/styled";
+import { Link, Route, Switch } from "react-router-dom";
 
 function ContentPopularLogoList() {
   const PopularLogoGroup = styled.div`
@@ -101,11 +102,13 @@ function ContentPopularLogoList() {
         시공업체 찾기
       </PopularLogoC>
       <PopularLogoD>
-        <img
-          src={process.env.PUBLIC_URL + "/img/content/logo/4.png"}
-          alt=""
-          className="img-fluid"
-        />
+        <Link to="/lumos">
+          <img
+            src={process.env.PUBLIC_URL + "/img/content/logo/4.png"}
+            alt=""
+            className="img-fluid"
+          />
+        </Link>
         루모스
       </PopularLogoD>
       <PopularLogoE>

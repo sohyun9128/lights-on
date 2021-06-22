@@ -16,18 +16,11 @@ function TodayKnowhow() {
   `;
 
   const PopularKnowhowGrid = styled.div`
-    display: grid;
-    grid-template-columns: 3fr 10px 1fr;
-    grid-auto-rows: auto;
-    align-items: center;
-    grid-template-areas:
-      "lf . rt"
-      "lf . rt"
-      "lf . rt";
+    height: auto;
+    width: 100%;
   `;
 
   let [cardContent1, setcardContent1] = useState(popularLeftDataSet);
-  let [cardContent2, setcardContent2] = useState(popularRightDataSet);
 
   return (
     <div className="mt-5">
@@ -41,11 +34,6 @@ function TodayKnowhow() {
               <CardLeftContent key={idx} content={content} />
             ))}
           </CardGroup>
-        </div>
-        <div style={{ gridArea: "rt / rt / rt / rt", alignItems: "center" }}>
-          {cardContent2.map((content, idx) => (
-            <CardRightContent key={idx} content={content} />
-          ))}
         </div>
       </PopularKnowhowGrid>
     </div>
@@ -70,40 +58,6 @@ function CardLeftContent(params) {
           </Card.Text>
         </Card.Body>
       </Card>
-    </>
-  );
-}
-
-function CardRightContent(params) {
-  return (
-    <>
-      <a href="/">
-        <Card
-          style={{
-            width: "10rem",
-            padding: "5px 10px 5px 10px",
-            backgroundColor: "lightgrey",
-            color: "black",
-            marginBottom: "10px",
-          }}
-        >
-          <Card.Body
-            style={{
-              padding: "0px",
-            }}
-          >
-            <Card.Text
-              className="text-left pb-2"
-              style={{ wordBreak: "keep-all" }}
-            >
-              {params.content.sub}
-            </Card.Text>
-            <Card.Title className="text-left" style={{ marginBottom: "0px" }}>
-              {params.content.title}
-            </Card.Title>
-          </Card.Body>
-        </Card>
-      </a>
     </>
   );
 }

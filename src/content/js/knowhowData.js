@@ -30,14 +30,14 @@ const ExpertTipData = [
   {
     title: "전기세를 아끼는 조명",
     author: "전기세줍줍",
-    src: "/img/knowhow/export/2.png",
+    src: "/img/knowhow/export/3.png",
     views: "7,214",
     scrap: "84",
   },
   {
     title: "스마트 조명 활용법 10선!",
     author: "탈칵",
-    src: "/img/knowhow/export/3.png",
+    src: "/img/knowhow/export/2.png",
     views: "8,103",
     scrap: "112",
   },

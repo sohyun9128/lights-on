@@ -5,7 +5,7 @@ import { jsx, css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { ListGroup, Button } from "react-bootstrap";
 import ShopBanner from "./ShopBanner";
-import ProductListData from "./js/productList.js"; //모든 상품데이터
+import { ProductList, nonDescProduct } from "./js/productList.js"; //모든 상품데이터
 import ProductCard from "./ProductCard";
 import menuList from "./js/menuList";
 
@@ -65,38 +65,38 @@ function ShopWrap() {
   const [subMenu, setsubMenu] = useState(false);
   const [subMenuContent, setsubMenuContent] = useState(["+"]);
   const [shopContentControl, setshopContentControl] = useState("모든상품");
-  const [productList, setproductList] = useState(ProductListData);
-  const [numProductTemp, setnumProductTemp] = useState(ProductListData);
+  const [productList, setproductList] = useState(ProductList);
+  const [numProductTemp, setnumProductTemp] = useState(nonDescProduct);
   const [pageNumControl, setpageNumControl] = useState([]);
   const [numProductList, setnumProductList] = useState(0);
 
   //menu라벨에 따른 상품리스트 초기화
   useEffect(() => {
-    console.log("ProductListData", ProductListData.length);
+    console.log("productList", productList.length);
     let pageNum;
     let initNumArray = [];
     if (shopContentControl === "모든상품") {
       //초기상태 + 모든상품 눌렀을때
-      let initArray = [...ProductListData];
+      let initArray = [...productList];
       let temp = [];
       let idx;
-      if(ProductListData.length > 12){
+      if (productList.length > 12) {
         idx = 12;
-      } else{
-        idx = ProductListData.length;
+      } else {
+        idx = productList.length;
       }
-      for(let i = 0; i < idx; i++){
-        temp.push(ProductListData[i]);
+      for (let i = 0; i < idx; i++) {
+        temp.push(productList[i]);
       }
       setproductList(temp);
       setnumProductTemp(initArray);
-      pageNum = ProductListData.length / 12;
-      for(let j = 0; j < pageNum; j++){
+      pageNum = productList.length / 12;
+      for (let j = 0; j < pageNum; j++) {
         initNumArray.push(0);
       }
       setpageNumControl(initNumArray);
     } else {
-      let tempArray = [...ProductListData];
+      let tempArray = [...productList];
       let sortArray = [];
       for (let i = 0; i < tempArray.length; i++) {
         if (tempArray[i].type === shopContentControl) {
@@ -105,46 +105,43 @@ function ShopWrap() {
       }
       let sortArray2 = [];
       let idx;
-      if(sortArray.length > 12){
+      if (sortArray.length > 12) {
         idx = 12;
-      } else{
+      } else {
         idx = sortArray.length;
       }
 
-      for(let i = 0; i < idx; i++){
+      for (let i = 0; i < idx; i++) {
         sortArray2.push(sortArray[i]);
       }
       setproductList(sortArray2);
       setnumProductTemp(sortArray);
 
       pageNum = sortArray.length / 12;
-      for(let j = 0; j < pageNum; j++){
+      for (let j = 0; j < pageNum; j++) {
         initNumArray.push(0);
       }
       setpageNumControl(initNumArray);
-
-
     }
     setnumProductList(0);
   }, [shopContentControl]);
-
 
   //num라벨에 따른 상품리스트  초기화
   useEffect(() => {
     let tempArray = [...numProductTemp];
     let sortArray = [];
     let startIdx, endIdx;
-    if(numProductList === 0){
+    if (numProductList === 0) {
       startIdx = 0;
     } else {
-      startIdx = ((numProductList)*12);
-    };
-    endIdx = startIdx+12;
-    if(endIdx > tempArray.length){
+      startIdx = numProductList * 12;
+    }
+    endIdx = startIdx + 12;
+    if (endIdx > tempArray.length) {
       endIdx = tempArray.length;
     }
 
-    for(let i = startIdx; i < endIdx; i++){
+    for (let i = startIdx; i < endIdx; i++) {
       sortArray.push(tempArray[i]);
     }
     setproductList(sortArray);
@@ -158,12 +155,12 @@ function ShopWrap() {
           <h4>Store</h4>
           <ListGroup variant="flush">
             <ListGroup.Item>
-              <MenuContent onClick={() =>{
-                console.log(typeof("모든상품"));
-                 setshopContentControl("모든상품");
-              }
-               
-                }>
+              <MenuContent
+                onClick={() => {
+                  console.log(typeof "모든상품");
+                  setshopContentControl("모든상품");
+                }}
+              >
                 모든상품
               </MenuContent>
             </ListGroup.Item>
@@ -184,21 +181,21 @@ function ShopWrap() {
                   {subMenuContent}
                 </MenuBtn>
               </Header>
-              {
-              subMenu 
-              ? (
+              {subMenu ? (
                 <SubMenu setshopContentControl={setshopContentControl} />
-              ) 
-              : null
-              }
+              ) : null}
             </ListGroup.Item>
             {menuList.map((menu, i) => (
               <ListGroup.Item>
-              <MenuContent data-name = {menu} onClick={(e) => {
-                setshopContentControl(e.target.dataset.name)}}>
-                {menu}
-              </MenuContent>
-            </ListGroup.Item>
+                <MenuContent
+                  data-name={menu}
+                  onClick={(e) => {
+                    setshopContentControl(e.target.dataset.name);
+                  }}
+                >
+                  {menu}
+                </MenuContent>
+              </ListGroup.Item>
             ))}
           </ListGroup>
         </div>
@@ -213,15 +210,16 @@ function ShopWrap() {
 
           <nav aria-label="Page navigation example">
             <ul className="pagination justify-content-center">
-              {
-                pageNumControl.map((a, i)=>(
-                  <li className="page-item page-link" onClick={
-                    ()=>{
-                      setnumProductList(i);
-                    }
-                  }>{i + 1}</li>
-                  ))
-              }
+              {pageNumControl.map((a, i) => (
+                <li
+                  className="page-item page-link"
+                  onClick={() => {
+                    setnumProductList(i);
+                  }}
+                >
+                  {i + 1}
+                </li>
+              ))}
             </ul>
           </nav>
         </div>
