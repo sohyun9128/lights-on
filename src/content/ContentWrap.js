@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, css } from "@emotion/react";
@@ -8,7 +8,9 @@ import ContentPopular from "./popular/ContentPopular";
 import ContentKnowhow from "./knowhow/ContentKnowhow";
 import RightRoom from "./lightroom/LightRoom";
 
-function ContentWrap() {
+function ContentWrap(props) {
+  const [defaltTab, setdefaltTab] = useState(props.defaltTab);
+
   let JustyfyCenter = css`
     justify-content: center;
     margin-bottom: 30px;
@@ -27,34 +29,40 @@ function ContentWrap() {
   `;
 
   return (
-    <Tabs
-      defaultActiveKey="popular"
-      id="uncontrolled-tab-example"
-      css={JustyfyCenter}
-    >
-      <Tab eventKey="popular" title="인기">
-        <ContentDiv>
-          <ContentPopular />
-        </ContentDiv>
-      </Tab>
-      <Tab eventKey="knowhow" title="노하우">
-        <ContentDiv
-          css={css`
-            text-align: left;
-          `}
-        >
-          <ContentKnowhow />
-        </ContentDiv>
-      </Tab>
-      <Tab eventKey="qna" title="라이트룸">
-        <ContentDiv>
-          <RightRoom />
-        </ContentDiv>
-      </Tab>
-      <Tab eventKey="tips" title="시공">
-        <ContentDiv></ContentDiv>
-      </Tab>
-    </Tabs>
+    <>
+      {console.log(props.defaltTab)}
+
+      <Tabs
+        defaultActiveKey="popular"
+        activeKey={defaltTab}
+        onSelect={(k) => setdefaltTab(k)}
+        id="uncontrolled-tab-example"
+        css={JustyfyCenter}
+      >
+        <Tab eventKey="popular" title="인기">
+          <ContentDiv>
+            <ContentPopular />
+          </ContentDiv>
+        </Tab>
+        <Tab eventKey="knowhow" title="노하우">
+          <ContentDiv
+            css={css`
+              text-align: left;
+            `}
+          >
+            <ContentKnowhow />
+          </ContentDiv>
+        </Tab>
+        <Tab eventKey="lightroom" title="라이트룸">
+          <ContentDiv>
+            <RightRoom />
+          </ContentDiv>
+        </Tab>
+        <Tab eventKey="tips" title="시공">
+          <ContentDiv></ContentDiv>
+        </Tab>
+      </Tabs>
+    </>
   );
 }
 

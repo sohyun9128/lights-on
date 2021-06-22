@@ -5,7 +5,7 @@ import styled from "@emotion/styled";
 
 function Header() {
   let Footer = styled.div`
-    background: #f8f9fa!important;
+    background: #f8f9fa !important;
     padding-top: 30px;
     margin-top: 30px;
     width: 100%;
@@ -21,7 +21,7 @@ function Header() {
   return (
     <Footer>
       <P style={{ fontSize: "30px" }}>Lights on</P>
-      <P>-Konkuk University, 조이름-</P>
+      <P>-Konkuk University-</P>
       <P>&copy; PandaCoding, KimSoHyun</P>
     </Footer>
   );

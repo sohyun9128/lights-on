@@ -13,7 +13,7 @@ import {
   LightRoomRVDataSet,
 } from "../js/lightRoomData.js";
 
-function RightRoom() {
+function RightRoom(props) {
   const LightRoomGrid = styled.div`
     text-align: right;
   `;
@@ -51,74 +51,99 @@ function RightRoom() {
           className="customNav"
         >
           <Tab eventKey="All" title="All">
-            <FeedGridLayout>
-              {VR.map((feed, idx) => (
-                <LightRoomFeed
-                  key={idx}
-                  feed={feed}
-                  // state={LightRoomFeed}
-                  // setState={setLightRoomFeed}
-                  idx={idx}
-                />
-              ))}
-              {AR.map((feed, idx) => (
-                <LightRoomFeed
-                  key={idx}
-                  feed={feed}
-                  // state={LightRoomFeed}
-                  // setState={setLightRoomFeed}
-                  idx={idx}
-                />
-              ))}
-              {RV.map((feed, idx) => (
-                <LightRoomFeed
-                  key={idx}
-                  feed={feed}
-                  // state={LightRoomFeed}
-                  // setState={setLightRoomFeed}
-                  idx={idx}
-                />
-              ))}
-            </FeedGridLayout>
+            <div
+              onClick={() => {
+                props.setlightroomSelect(true);
+              }}
+            >
+              <FeedGridLayout>
+                {VR.map((feed, idx) => (
+                  <LightRoomFeed
+                    key={idx}
+                    feed={feed}
+                    // state={LightRoomFeed}
+                    // setState={setLightRoomFeed}
+                    idx={idx}
+                  />
+                ))}
+                {AR.map((feed, idx) => (
+                  <LightRoomFeed
+                    key={idx}
+                    feed={feed}
+                    // state={LightRoomFeed}
+                    // setState={setLightRoomFeed}
+                    idx={idx}
+                  />
+                ))}
+                {RV.map((feed, idx) => (
+                  <LightRoomFeed
+                    key={idx}
+                    feed={feed}
+                    // state={LightRoomFeed}
+                    // setState={setLightRoomFeed}
+                    idx={idx}
+                  />
+                ))}
+              </FeedGridLayout>{" "}
+            </div>
           </Tab>
+
           <Tab eventKey="VR" title="VR">
-            <FeedGridLayout>
-              {VR.map((feed, idx) => (
-                <LightRoomFeed
-                  key={idx}
-                  feed={feed}
-                  // state={LightRoomFeed}
-                  // setState={setLightRoomFeed}
-                  idx={idx}
-                />
-              ))}
-            </FeedGridLayout>
+            <div
+              onClick={() => {
+                props.setlightroomSelect(true);
+              }}
+            >
+              <FeedGridLayout>
+                {VR.map((feed, idx) => (
+                  <LightRoomFeed
+                    key={idx}
+                    feed={feed}
+                    // state={LightRoomFeed}
+                    // setState={setLightRoomFeed}
+                    idx={idx}
+                  />
+                ))}
+              </FeedGridLayout>
+            </div>
           </Tab>
           <Tab eventKey="AR" title="AR">
-            <FeedGridLayout>
-              {AR.map((feed, idx) => (
-                <LightRoomFeed
-                  key={idx}
-                  feed={feed}
-                  // state={LightRoomFeed}
-                  // setState={setLightRoomFeed}
-                  idx={idx}
-                />
-              ))}
-            </FeedGridLayout>
+            <div
+              onClick={() => {
+                props.setlightroomSelect(true);
+              }}
+            >
+              <FeedGridLayout>
+                {AR.map((feed, idx) => (
+                  <LightRoomFeed
+                    key={idx}
+                    feed={feed}
+                    // state={LightRoomFeed}
+                    // setState={setLightRoomFeed}
+                    idx={idx}
+                  />
+                ))}
+              </FeedGridLayout>
+            </div>
           </Tab>
           <Tab eventKey="리뷰" title="리뷰">
-            <FeedGridLayout>
-              {RV.map((feed, idx) => (
-                <LightRoomFeed
-                  key={idx}
-                  feed={feed}
-                  // state={LightRoomFeed}
-                  // setState={setLightRoomFeed}
-                  idx={idx}
-                />
-              ))}
-            </FeedGridLayout>
+            <div
+              onClick={() => {
+                props.setlightroomSelect(true);
+              }}
+            >
+              <FeedGridLayout>
+                {RV.map((feed, idx) => (
+                  <LightRoomFeed
+                    key={idx}
+                    feed={feed}
+                    // state={LightRoomFeed}
+                    // setState={setLightRoomFeed}
+                    idx={idx}
+                  />
+                ))}
+              </FeedGridLayout>
+            </div>
           </Tab>
         </Tabs>
       </LightRoomGrid>
